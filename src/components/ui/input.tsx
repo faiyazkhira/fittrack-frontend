@@ -1,4 +1,3 @@
-"use client";
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { useMotionTemplate, useMotionValue, motion } from "motion/react";
@@ -28,7 +27,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               ${
                 visible ? radius + "px" : "0px"
               } circle at ${mouseX}px ${mouseY}px,
-              #3b82f6,
+              #b7410e,
               transparent 80%
             )
           `,

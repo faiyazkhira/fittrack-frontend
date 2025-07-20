@@ -13,11 +13,10 @@ export default function SignupFormDemo() {
   return (
     <div className="shadow-input mx-auto w-full max-w-md rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black">
       <h2 className="text-xl font-bold text-neutral-800 dark:text-neutral-200">
-        Welcome to Aceternity
+        Welcome to Repwise
       </h2>
       <p className="mt-2 max-w-sm text-sm text-neutral-600 dark:text-neutral-300">
-        Login to aceternity if you can because we don&apos;t have a login flow
-        yet
+        Start your journey with Repwise
       </p>
 
       <form className="my-8" onSubmit={handleSubmit}>
@@ -40,11 +39,11 @@ export default function SignupFormDemo() {
           <Input id="password" placeholder="••••••••" type="password" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-8">
-          <Label htmlFor="twitterpassword">Your twitter password</Label>
+          <Label htmlFor="retypepassword">Re-type password</Label>
           <Input
-            id="twitterpassword"
+            id="retypepassword"
             placeholder="••••••••"
-            type="twitterpassword"
+            type="retypepassword"
           />
         </LabelInputContainer>
 
@@ -90,6 +89,12 @@ export default function SignupFormDemo() {
             <BottomGradient />
           </button> */}
         </div>
+        <div className="mt-4 text-center text-sm">
+          Already have an account?{" "}
+          <a href="/login" className="underline underline-offset-4">
+            Log in
+          </a>
+        </div>
       </form>
     </div>
   );
@@ -97,8 +102,8 @@ export default function SignupFormDemo() {
 
 const BottomGradient = () => (
   <>
-    <span className="absolute inset-x-0 -bottom-px block h-px w-full bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100" />
-    <span className="absolute inset-x-10 -bottom-px mx-auto block h-px w-1/2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-0 blur-sm transition duration-500 group-hover/btn:opacity-100" />
+    <span className="absolute inset-x-0 -bottom-px block h-px w-full bg-gradient-to-r from-transparent via-[#b7410e] to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100" />
+    <span className="absolute inset-x-10 -bottom-px mx-auto block h-px w-1/2 bg-gradient-to-r from-transparent via-[#ff6f3c]/90 to-transparent opacity-0 blur-sm transition duration-500 group-hover/btn:opacity-100" />
   </>
 );
 

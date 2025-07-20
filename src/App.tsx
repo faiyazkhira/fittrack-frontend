@@ -6,6 +6,8 @@ import Layout from "./components/Layout";
 import { Toaster } from "sonner";
 import LoginFormDemo from "./components/login-form";
 import SignupFormDemo from "./components/ui/signup-form";
+import ResetPasswordForm from "./components/reset-password-form";
+import OnboardingPage from "./pages/OnboardingPage";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
             <Routes>
               <Route path="/login" element={<LoginFormDemo />} />
               <Route path="/register" element={<SignupFormDemo />} />
+              <Route path="/onboarding" element={<OnboardingPage />} />
+              <Route path="/reset-password" element={<ResetPasswordForm />} />
               <Route
                 path="/dashboard"
                 element={

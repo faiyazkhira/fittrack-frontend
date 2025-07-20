@@ -163,6 +163,10 @@
 .react-calendar-heatmap .color-empty {
   fill: #ebedf0;
 }
+
+.dark .react-calendar-heatmap .color-empty {
+  fill: #1a1a1a;
+}
 .react-calendar-heatmap .color-scale-1 {
   fill: #c6e48b;
 }

@@ -1,35 +1,37 @@
-import { useEffect, useState } from "react";
-import api from "../api/axios";
-
-type UserProfile = {
-  name: string;
-  email: string;
-  age: BigInteger;
-  height: number;
-  weight: number;
-  gender: string;
-};
+import { useDashboardData } from "@/hooks/useDashboardData";
+import { Button } from "@/components/ui/button";
+import CalendarHeatmap from "@/features/CalendarHeatmap";
+import QuickStats from "@/features/QuickStats";
+import LastWorkoutSummary from "@/features/LastWorkoutSummary";
 
 function DashboardPage() {
-  const [profile, setProfile] = useState<UserProfile | null>(null);
+  const { data, isLoading } = useDashboardData();
 
-  useEffect(() => {
-    api
-      .get("v1/user/me")
-      .then((res) => setProfile(res.data))
-      .catch(() => alert("Failed to load profile"));
-  }, []);
-
-  if (!profile) return <div>Loading...</div>;
+  if (isLoading || !data) {
+    return <div className="p-4">Loading dashboard...</div>;
+  }
 
   return (
-    <div>
-      <h2>Welcome, {profile.name}</h2>
-      <p>Email: {profile.email}</p>
-      <p>Age: {profile.age}</p>
-      <p>Height: {profile.height} cm</p>
-      <p>Weight: {profile.weight} kg</p>
-      <p>Gender: {profile.gender}</p>
+    <div className="p-4 space-y-6">
+      <h1 className="text-2xl font-semibold">Welcome back</h1>
+      <p>
+        Your last training session: {data.lastWorkout?.muscleGroup || "N/A"}
+      </p>
+
+      <QuickStats
+        workoutsThisMonth={data.workoutsThisMonth}
+        totalWorkouts={data.totalWorkouts}
+        currentWeight={data.currentWeight}
+      />
+
+      <CalendarHeatmap entries={data.calendarHeatmap ?? []} />
+
+      <LastWorkoutSummary lastWorkout={data.lastWorkout} />
+
+      <div className="flex gap-4">
+        <Button>+ Log Workout</Button>
+        <Button>+ Log Weight</Button>
+      </div>
     </div>
   );
 }
